@@ -14,30 +14,39 @@
 <button class="btn btn-danger" (click)="updateStock()">Update Stock</button> -->
 
 <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">SL No:</th>
-        <th scope="col">ID</th>
-        <th scope="col">StockName</th>
-        <th scope="col">StockMarketCap</th>
-        <th scope="col">StockMSector</th>
-        <th scope="col">ReleaseDate</th>
-        <th scope="col">Symbol</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stock of  stockDetails; let i=index">
-        <td>{{i}}</td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.id}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.id></td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.stockName}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockName></td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.stockMarketCap}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMarketCap></td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.stockMSector}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMSector></td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.releaseDate}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.releaseDate></td>
-        <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.symbol}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.symbol></td>
-        <td><button class="btn btn-success"  (click)="editStock(i)">Edit Stock</button>
-          <button class="btn btn-danger" (click)="updateStock(i)">Update Stock</button></td>
-      </tr>
-    </tbody>
-  </table> 
-  <p>Stock Details length is : {{stockDetails.length}}</p>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">SL No:</th>
+      <th scope="col">ID</th>
+      <th scope="col">StockName</th>
+      <th scope="col">StockMarketCap</th>
+      <th scope="col">StockMSector</th>
+      <th scope="col">ReleaseDate</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stock of  stockDetails; let i=index">
+      <td>{{i}}</td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.id}}</span> <input type="text"
+          *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.id></td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]" [ngClass]="'stockBuyColor'
+          ">{{stock.stockName}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]"
+          [(ngModel)]=stock.stockName></td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]"
+        [ngClass]="{'stockMarketCapClass': stock.stockMarketCap>100}">{{stock.stockMarketCap}}</span> <input type="text"
+          *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMarketCap></td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.stockMSector}}</span> <input type="text"
+          *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMSector></td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.releaseDate}}</span> <input type="text"
+          *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.releaseDate></td>
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.symbol}}</span> <input type="text"
+          *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.symbol></td>
+      <td><button class="btn btn-success" (click)="editStock(i)">Edit Stock</button>
+        <button class="btn btn-danger" (click)="updateStock(i)">Update Stock</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Stock Details length is : {{stockDetails.length}}</p>
