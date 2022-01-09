@@ -1,0 +1,45 @@
+<h1>Stock Details NSE</h1>
+
+<p>Stock Info :{{stockInfo}}</p>
+<p>Stock Number: {{stockNumber}}</p>
+<ul>
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.id}}</span> <input type="text" *ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.id></li> 
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.stockName}}</span><input type="text"*ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.stockName></li> 
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.stockMarketCap}}</span><input type="text" *ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.stockMarketCap></li> 
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.stockMSector}}</span><input type="text" *ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.stockMSector></li>
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.releaseDate}}</span><input type="text" *ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.releaseDate></li>
+    <li><span *ngIf="!isEditStockButtonClicked">{{stockdetail.symbol}}</span><input type="text" *ngIf="isEditStockButtonClicked" [(ngModel)]=stockdetail.symbol></li>
+</ul>
+<button class="btn btn-success"  (click)="editStock()">Edit Stock</button>
+<button class="btn btn-danger" (click)="updateStock()">Update Stock</button>
+
+<!-- <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table> -->
