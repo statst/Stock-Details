@@ -35,13 +35,13 @@
           ">{{stock.stockName}}</span> <input type="text" *ngIf="isEditStockButtonClickedDetails[i]"
           [(ngModel)]=stock.stockName></td>
       <td><span *ngIf="!isEditStockButtonClickedDetails[i]"
-        [ngClass]="{'stockMarketCapClass': stock.stockMarketCap>100}">{{stock.stockMarketCap}}</span> <input type="text"
+        [ngClass]="stock.stockMarketCap>100 ? 'stockMarketCapClass': ''">{{stock.stockMarketCap}}</span> <input type="text"
           *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMarketCap></td>
-      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.stockMSector}}</span> <input type="text"
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]" [ngStyle]="{'color':'red', 'background-color':'black'}">{{stock.stockMSector}}</span> <input type="text"
           *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.stockMSector></td>
       <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.releaseDate}}</span> <input type="text"
           *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.releaseDate></td>
-      <td><span *ngIf="!isEditStockButtonClickedDetails[i]">{{stock.symbol}}</span> <input type="text"
+      <td><span *ngIf="!isEditStockButtonClickedDetails[i]" [ngStyle]="{'color':stock.symbol ==='BIOS'? 'red':''}" >{{stock.symbol}}</span> <input type="text"
           *ngIf="isEditStockButtonClickedDetails[i]" [(ngModel)]=stock.symbol></td>
       <td><button class="btn btn-success" (click)="editStock(i)">Edit Stock</button>
         <button class="btn btn-danger" (click)="updateStock(i)">Update Stock</button>
