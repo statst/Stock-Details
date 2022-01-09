@@ -1,1 +1,28 @@
-<p>stock-records1 works!</p>
+<h1>Stocks First 3</h1>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">SL No:</th>
+        <th scope="col">ID</th>
+        <th scope="col">StockName</th>
+        <th scope="col">StockMarketCap</th>
+        <th scope="col">StockMSector</th>
+        <th scope="col">ReleaseDate</th>
+        <th scope="col">Symbol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of  stockRecords; let i=index">
+        <td>{{i}}</td>
+        <td><span >{{stock.id}}</span> </td>
+        <td><span  
+            >{{stock.stockName}}</span></td>
+        <td><span 
+         >{{stock.stockMarketCap}}</span> </td>
+        <td><span  >{{stock.stockMSector}}</span> </td>
+        <td><span >{{stock.releaseDate}}</span> </td>
+        <td><span   >{{stock.symbol}}</span> </td>
+       
+      </tr>
+    </tbody>
+  </table>
