@@ -13,33 +13,25 @@
 <button class="btn btn-success"  (click)="editStock()">Edit Stock</button>
 <button class="btn btn-danger" (click)="updateStock()">Update Stock</button>
 
-<!-- <table class="table">
+<table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">ID</th>
+        <th scope="col">StockName</th>
+        <th scope="col">StockMarketCap</th>
+        <th scope="col">StockMSector</th>
+        <th scope="col">ReleaseDate</th>
+        <th scope="col">Symbol</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let stock of stockDetails">
+        <td>{{stock.id}}</td>
+        <td>{{stock.stockName}}</td>
+        <td>{{stock.stockMarketCap}}</td>
+        <td>{{stock.stockMSector}}</td>
+        <td>{{stock.releaseDate}}</td>
+        <td>{{stock.symbol}}</td>
       </tr>
     </tbody>
-  </table> -->
+  </table> 
