@@ -1,12 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IStockDetail } from '../models/stocks.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StockService {
   
-  constructor() { }
+  constructor( private http : HttpClient) { }
 
   public getStockDetails():IStockDetail[]{
     return  [{
@@ -45,5 +44,9 @@ export class StockService {
       releaseDate: "06/07/2021",
       symbol: "QSR"
     }]
+  }
+
+  public getStockNews(): any{
+     return this.http.get('https://newsapi.org/v2/everything?q=tesla&from=2021-12-09&sortBy=publishedAt&apiKey=362d5cd20958413dbd382057cd77b44f');
   }
 }
