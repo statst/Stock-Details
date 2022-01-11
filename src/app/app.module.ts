@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { StockRecords1Component } from './components/stock-records1/stock-records1.component';
 import { StockRecords2Component } from './components/stock-records2/stock-records2.component';
 import { StocksComponent } from './components/stocks/stocks.component';
+import { StockService } from './services/stock.service';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { StocksComponent } from './components/stocks/stocks.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [StockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

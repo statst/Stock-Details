@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IStockDetail } from 'src/app/models/stocks.model';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-stocks',
@@ -7,12 +8,18 @@ import { IStockDetail } from 'src/app/models/stocks.model';
   styleUrls: ['./stocks.component.css']
 })
 export class StocksComponent implements OnInit {
+
+  //variable declaration
   public stockInfo: string;
   public stockNumber: number;
   public stockdetail : IStockDetail;
+  public stockDetails: IStockDetail[];
 
   public isEditStockButtonClicked : Boolean;
-  constructor() {
+  public isEditStockButtonClickedDetails : Boolean[];
+  constructor(private stockService: StockService) {
+
+    // variable initialization at the constructor level
       this.stockInfo = '';
       this.stockNumber = 0;
       // this.stockdetail ={
@@ -25,9 +32,13 @@ export class StocksComponent implements OnInit {
       // };   
       this.isEditStockButtonClicked = false;
       this.stockdetail = {} as IStockDetail;
+      this.stockDetails = [];
+      this.isEditStockButtonClickedDetails = []
    }
 
   public ngOnInit(): void {
+
+    // value assgination at start of angular compiler involved life cycle
     this.stockInfo = 'Test Stock';
     this.stockNumber = 10;
     this.stockdetail = {
@@ -38,14 +49,25 @@ export class StocksComponent implements OnInit {
       releaseDate: "01/06/2021",
       symbol: "BIOS"
     }
+    // Array list of objects
+    this.stockDetails = this.stockService.getStockDetails();
+
+    this.fillEditButtonArray();
   }
 
-  public editStock(): void{
-    this.isEditStockButtonClicked = true;
+
+  public editStock(index:number): void{
+    this.isEditStockButtonClickedDetails[index] = true;
   }
 
-  public updateStock(): void{
-    this.isEditStockButtonClicked = false;
+  public updateStock(index:number): void{
+    this.isEditStockButtonClickedDetails[index] = false;
+  }
+
+  public fillEditButtonArray():void{
+    for (let index = 0; index < this.stockDetails.length; index++) {
+      this.isEditStockButtonClickedDetails[index] = false;
+    }
   }
 
 }

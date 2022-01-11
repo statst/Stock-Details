@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IStockDetail } from 'src/app/models/stocks.model';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-stock-records2',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-records2.component.css']
 })
 export class StockRecords2Component implements OnInit {
+  public stockRecords: IStockDetail[];
+  constructor(private stockService: StockService) { 
+    this.stockRecords = [];
+  }
 
-  constructor() { }
+  public ngOnInit(): void {
+    this.initializeStockRecords();
+  }
 
-  ngOnInit(): void {
+  public initializeStockRecords():void{
+    this.stockRecords = this.stockService.getStockDetails().splice(3,5)
   }
 
 }
+
